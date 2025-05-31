@@ -43,11 +43,10 @@ def decryptage(message,user_cle):
 start = time.perf_counter()
 
 texte=plaintext.plaintext("exemple.txt")
-print(len(texte))
-#cle=round_cle.cle()
+cle=round_cle.cle()
 
-
-
-# -------------------------------------------------------------------cryptage------------------------------------------------------------------------
-
-#for i in range(len(texte)) 
+for i in texte :
+    rs=i
+    for j in range(5) : 
+        rs=encryption(rs,cle[j])
+        print(rs)
