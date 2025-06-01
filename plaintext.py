@@ -36,7 +36,7 @@ def plaintext(lien_fichier):
       
 
             plain_texte=contenu.ljust(padding)
-            print(len(plain_texte))
+           
 
     resultat=[]
     for i in range(0,len(plain_texte),16):
@@ -47,18 +47,5 @@ def plaintext(lien_fichier):
             temp=x[i:i+4]
             tmp2.append(temp)
         resultat.append(tmp2)
-   
-
-
- 
-
-            
-
-       
-
-
     return resultat
 #tabMess sera utiliser dans message round
-texte= plaintext("exemple.txt")
-texte=np.array(texte)
-print(np.shape(texte))

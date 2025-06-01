@@ -1,6 +1,6 @@
 
 #import operator
-#from base import  sbox , s_box
+from base import  sbox , s_box
 import copy
 
 def subyte(m,cle_user):
@@ -12,7 +12,7 @@ def subyte(m,cle_user):
             if temp > 255 :
                 temp=32
      
-           # message[i][j] = sbox[temp]
+            message[i][j] = sbox[temp]
 
     liste_subyte=[]
     for i in range(4):
