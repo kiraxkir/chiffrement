@@ -58,8 +58,6 @@ def cryptage(texte,cle):
 
 texte=plaintext.plaintext("exemple.txt")
 cle=round_cle.cle()
-print(texte)
-
 
 resultat=[]
 for i in texte : 
@@ -67,7 +65,7 @@ for i in texte :
         for j in range (5): 
             x=encryption(x,cle[j])
         resultat.append(x)
-print(resultat)
+
 
 decrype=[]
 
