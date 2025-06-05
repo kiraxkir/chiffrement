@@ -1,0 +1,31 @@
+
+
+# for i in texte : 
+#     x=i
+#     for j in range ( 5): 
+#         x=encryption(x,cle[j])
+#     for index in range(4):
+#         for h in range( 4):
+#             x[index][h] = chr(x[index][h])
+#     crypte.append(''.join([char for ligne in x for char in ligne]))
+
+# resultat=''.join([c for c in crypte])
+
+#resultat=''.join([c for c in crypte])
+
+
+# f=open("resultat.txt","w+",encoding="latin1")
+# f.write(resultat)
+# f.close()
+
+    
+
+# print(crypte)
+# decrype=[]
+# for i in crypte:
+#     y=i
+#     for j in range(1,6):
+#         y=decryptage(y,cle[-j])
+#     decrype.append(y)
+
+
