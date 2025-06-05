@@ -7,7 +7,7 @@ def nettoyer_texte(contenu):
         '“': '"', '”': '"',
         '«': '"', '»': '"',
         '–': '-', '—': '-',
-        '−': '-',
+        '−': '-',"’" : "'",
         '\n':'', 
         '\u00A0': ' ', '\u2009': ' ', '\u200A': ' ', '\u200B': ''
     }
@@ -49,3 +49,23 @@ def plaintext(lien_fichier):
         resultat.append(tmp2)
     return resultat
 #tabMess sera utiliser dans message round
+
+def invplaintext(lien_fichier) :
+    with open(lien_fichier,"rb") as f:
+        bit=f.read()
+        l_c=list(bit) # liste chiffre
+    liste_chiffre=[]
+    resultat=[]
+    for i in range(0,len(l_c),16):
+        liste_chiffre.append(l_c[i:i+16])
+    for i in liste_chiffre :
+        tmp1=[]
+        tmp2=[]
+        for j in range(0,16,4) :
+            tmp1=i[j:j+4]
+            tmp2.append(tmp1)
+        resultat.append(tmp2)
+    return resultat
+
+
+
