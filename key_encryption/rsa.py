@@ -1,44 +1,46 @@
 
-a="iIlBxVMlejcUxVYt"
-def RSA(cle_user):
+
+
+key=[[101, 104, 98, 118], [121, 103, 117, 32], [98, 106, 101, 122], [110, 44, 59, 102]]
+def RSA(cle):
     #generation des clé
+
     from sympy import mod_inverse
     from sympy import randprime
     import random
 
-    p=randprime(10**2,10**5)
+    p=randprime(10**20,10**38) # j ai choisi arbitrairement les valeur de p et q 
 
-    q=randprime(10**2,10**5)
+    q=randprime(10**20,10**38)
+
     n=p*q
 
     Ø=(p-1)*(q-1)
 
-    e=randprime(10,200)
+    e=randprime(10**14,10**20)
 
     d=mod_inverse(e,Ø)
     
-    #clé pubique n et e clé publique c est d
-    #message=input("veuillez entrer le message a transferer : ")
-    liste_message=[m for m in cle_user]
-    cle_chiffre=[]
-    for i in range(len(liste_message)):
-        x=ord(liste_message[i])
-        cle_chiffre.append(x)
-        x=0
-    print(cle_chiffre[:])
+    #clé pubique n et e clé privé c est d
+    print(d)
+    print(n)
     liste_message_chiffré=[]
-    for i in range(16):
-        y=cle_chiffre[i]
-        x=pow(y,e,n)
-        liste_message_chiffré.append(x)
-        y=0
-        x=0
-    with open("clé_chiffré.bin","wb") as f:
-        for j in liste_message_chiffré:
-            f.write(bytes(j))
+    for block in cle:
+        tmp=[]
+        for ligne in block: 
+            y=ligne
+            x=pow(y,e,n)
+            tmp.append(x)
+            y=0
+            x=0
+        liste_message_chiffré.append(tmp)
+
+    with open("teste.txt","w+") as f:
+        for block in liste_message_chiffré :
+            for valeur in block :
+                f.write(f"{valeur} \n")
     
 
 
-    return "merci"
-    
-print(RSA(a))
+    return " merci "
+print(RSA(key))

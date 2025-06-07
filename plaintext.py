@@ -3,6 +3,7 @@ import numpy as np
 def nettoyer_texte(contenu):
     texte=contenu
     remplacements = {
+        
         '‘': "'", '’': "'",
         '“': '"', '”': '"',
         '«': '"', '»': '"',
@@ -69,3 +70,4 @@ def invplaintext(lien_fichier) :
 
 
 
+print(plaintext("exemple.txt"))
