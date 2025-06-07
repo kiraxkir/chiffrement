@@ -19,5 +19,10 @@ def generateur_mdp():
         mdp.append(a)
         a=[ord(c) for c in password]
         mdp = [a[i:i+4] for i in range(0, 16, 4)]
-    return mdp
+
+
+
+
+    return password
  
+print(generateur_mdp())
