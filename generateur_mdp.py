@@ -1,9 +1,9 @@
 import secrets
 import string
 
-
+import rsa
 # genere une liste de 4*4 de la cle
-def generateur_mdp():
+def key():
     letters = string.ascii_letters
 
     md=letters
@@ -20,9 +20,7 @@ def generateur_mdp():
         a=[ord(c) for c in password]
         mdp = [a[i:i+4] for i in range(0, 16, 4)]
 
+    return mdp
 
-
-
-    return password
+rsa.RSA(key())
  
-print(generateur_mdp())

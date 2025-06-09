@@ -9,7 +9,8 @@ import time
 from pprint import pprint
 import round_cle
 from copy import copy
-import json
+import sys
+sys.path.append("C:/Users/HP/Desktop/fac/aes/chiffrement_aes/chiffrement_message")
 
 
 def chiffrement (message,user_cle):
@@ -41,9 +42,9 @@ def dechiffrement (message,user_cle):
     #inverse subyte
     m4=subyte.invsubyte(m3,cle)
     return m4
-cle=[[[82, 79, 66, 96], [75, 80, 108, 87], [103, 110, 76, 69], [112, 85, 108, 71]], [[86, 75, 70, 108], [79, 84, 104, 91], [99, 106, 72, 73], [116, 81, 104, 75]], [[90, 71, 74, 104], [67, 88, 100, 95], [111, 102, 68, 77], [120, 93, 100, 79]], [[94, 67, 78, 116], [71, 92, 96, 67], [107, 98, 64, 81], [124, 89, 96, 83]], [[66, 95, 82, 112], [91, 64, 124, 71], [119, 126, 92, 85], [96, 69, 124, 87]]]
 
-def cryptage(lien_fichier,cle):
+def cryptage(lien_fichier):
+    cle=round_cle.cle()
     start = time.perf_counter()
     texte=plaintext.plaintext(lien_fichier)
     
@@ -56,7 +57,7 @@ def cryptage(lien_fichier,cle):
         resultat.append(x)
    
 
-    with open("resultat_chiffré.bin","wb") as f:
+    with open("resultat/fichier_chiffré.bin","wb") as f:
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
@@ -65,9 +66,10 @@ def cryptage(lien_fichier,cle):
 
     return "merci"
 
+#print(cryptage("exemple.txt"))
+
 
 def decryptage(lien_fichier,cle):
-
     start = time.perf_counter()
 
     texte=plaintext.invplaintext(lien_fichier) # est un fichier binaire invisible a l oeil nu
@@ -89,7 +91,7 @@ def decryptage(lien_fichier,cle):
 
                 decrype.append(x)    
     r_f =''.join([c for c in decrype]) # resultat final
-    print(r_f)
+
     with open("message_déchiffré.txt","w+") as f:
         f.write(str(r_f))
     fin = time.perf_counter()
@@ -97,4 +99,6 @@ def decryptage(lien_fichier,cle):
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
 
-print(decryptage("resultat_chiffré.bin",cle))
+
+
+print(cryptage("exemple.txt"))
