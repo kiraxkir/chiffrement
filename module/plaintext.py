@@ -70,4 +70,3 @@ def invplaintext(lien_fichier) :
 
 
 
-print(plaintext("exemple.txt"))

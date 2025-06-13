@@ -70,6 +70,7 @@ def cryptage(lien_fichier):
 
 
 def decryptage(lien_fichier,cle):
+    
     start = time.perf_counter()
 
     texte=plaintext.invplaintext(lien_fichier) # est un fichier binaire invisible a l oeil nu
@@ -98,7 +99,3 @@ def decryptage(lien_fichier,cle):
 
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
-
-
-
-print(cryptage("exemple.txt"))

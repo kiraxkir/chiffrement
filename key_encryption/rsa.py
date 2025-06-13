@@ -1,17 +1,12 @@
 
-import sys
-sys.path.append('C:/Users/HP/Desktop/fac/aes\chiffrement_aes')
-import generateur_mdp
-import generateur_mdp
 from sympy import mod_inverse
 from sympy import randprime
 import random
-
-def RSA():
+import sys
+import os
+sys.path.append("C:/Users/HP/Desktop/fac/aes/chiffrement_aes/resultat")
+def RSA(cle):
     #generation des clé
-  
-    cle=generateur_mdp.key()
-    print(cle)
     p=randprime(10**20,10**38) # j ai choisi arbitrairement les valeur de p et q 
 
     q=randprime(10**20,10**38)
@@ -25,8 +20,6 @@ def RSA():
     d=mod_inverse(e,Ø)
     
     #clé pubique n et e clé privé c est d
-    print("d=",d)
-    print("n=",n)
     liste_message_chiffré=[]
     for block in cle:
         tmp=[]
@@ -38,12 +31,16 @@ def RSA():
             x=0
         liste_message_chiffré.append(tmp)
 
-    with open("teste.txt","w+") as f:
+    os.makedirs("resultat",exist_ok=True)
+    with open("resultat/cle_chiffré.txt","w+") as f:
+
         for block in liste_message_chiffré :
             for valeur in block :
+
                 f.write(f"{valeur} \n")
-    
+    with open("resultat/cle_privé.txt","w+") as c:
+
+        c.write(f"{str((d,n))} le premier c est d et le deuxieme n")
 
 
     return " merci "
-print(RSA())
