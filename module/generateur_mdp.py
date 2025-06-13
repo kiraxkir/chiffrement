@@ -1,7 +1,11 @@
+import sys
+sys.path.append("key_encryption")
+
 import secrets
 import string
 import rsa
 # genere une liste de 4*4 de la cle
+
 def key():
     letters = string.ascii_letters
 

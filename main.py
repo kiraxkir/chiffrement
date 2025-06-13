@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append("module")
 import plaintext
 import subyte
 import mixcolumn
@@ -10,6 +11,7 @@ from pprint import pprint
 import round_cle
 from copy import copy
 import sys
+import os
 sys.path.append("C:/Users/HP/Desktop/fac/aes/chiffrement_aes/chiffrement_message")
 
 
@@ -56,8 +58,9 @@ def cryptage(lien_fichier):
             x=chiffrement(x,cle[j])
         resultat.append(x)
    
-
-    with open("resultat/fichier_chiffré.bin","wb") as f:
+    desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+    folder_path = os.path.join(desktop, "encryption_resultat/")
+    with open(folder_path+"fichier_chiffré.bin","wb") as f:
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
@@ -99,3 +102,6 @@ def decryptage(lien_fichier,cle):
 
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
+
+
+print(cryptage("exemple.txt"))
