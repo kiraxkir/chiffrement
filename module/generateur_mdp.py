@@ -5,7 +5,7 @@ import secrets
 import string
 import rsa
 # genere une liste de 4*4 de la cle
-
+from datetime import datetime
 def key():
     letters = string.ascii_letters
 
@@ -25,5 +25,14 @@ def key():
 
     return mdp
 
-rsa.RSA(key())
+now=datetime.now()
+date_str = now.strftime("%Y-%m-%d  %H %M' ")
+filename="encryption_result "+date_str+"/"
+
+
+fichier=rsa.RSA(key())
+
+print(fichier)
+
+
  
