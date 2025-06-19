@@ -1,6 +1,15 @@
 import sys
 sys.path.append("module")
+import os
+desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+final_folder= os.path.join(desktop,"chiffrement_resultat")
+os.makedirs(final_folder,exist_ok=True)
+
+
+
+
 import plaintext
+print(plaintext.plaintext("exemple.txt"))
 import subyte
 import mixcolumn
 import shiftrows
@@ -10,10 +19,8 @@ import time
 from pprint import pprint
 import round_cle
 from copy import copy
-import sys
-import os
-sys.path.append("C:/Users/HP/Desktop/fac/aes/chiffrement_aes/chiffrement_message")
-
+import shutil # pour le deplacement du dossier après chiffrement 
+from generateur_mdp import fichier 
 
 def chiffrement (message,user_cle):
     message=[c for c in message]
@@ -59,17 +66,22 @@ def cryptage(lien_fichier):
         resultat.append(x)
    
     desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-    folder_path = os.path.join(desktop, "encryption_resultat/")
+
+    folder_path = os.path.join(desktop,fichier)
+        # "encryption_resultat/
+  
     with open(folder_path+"fichier_chiffré.bin","wb") as f:
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
+    
+
+    shutil.move(folder_path, final_folder)
     end = time.perf_counter()
     print(f"le chiffrement a pris {end - start:.4f} second")
 
     return "merci"
 
-#print(cryptage("exemple.txt"))
 
 
 def decryptage(lien_fichier,cle):
