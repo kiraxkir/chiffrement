@@ -9,9 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from encryption_screen import *
 
 class Ui_Form(object):
+    # pour ouvrir les autres fenetres 
+    def open_encryption(self):
+        self.windows=QtWidgets.QWidget()
+        self.ui=Ui_encryption_screen()
+        self.ui.setupUi(self.windows)
+        self.windows.show()
+        
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1345, 959)
@@ -84,7 +91,8 @@ class Ui_Form(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.btn_encryption = QtWidgets.QPushButton(self.frame)
+        self.btn_encryption = QtWidgets.QPushButton(self.frame )
+        self.btn_encryption.clicked.connect(self.open_encryption)
         self.btn_encryption.setGeometry(QtCore.QRect(30, 160, 511, 71))
         self.btn_encryption.setObjectName("btn_encryption")
         self.btn_decryption = QtWidgets.QPushButton(self.frame)
