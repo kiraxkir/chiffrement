@@ -92,11 +92,24 @@ class Ui_Form(object):
         self.btn_decryption.setObjectName("btn_decryption")
         self.btn_instruction = QtWidgets.QPushButton(self.frame)
         self.btn_instruction.setGeometry(QtCore.QRect(30, 480, 501, 71))
-        self.btn_instruction.setStyleSheet("background-color: #f1c40f;\n"
-"color: #102a43;")
+        self.btn_instruction.setStyleSheet("QPushButton {\n"
+"    background-color: #f1c40f;\n"
+"    color: #102a43;\n"
+"    border: none;\n"
+"    border-radius: 8px;\n"
+"    padding: 10px 20px;\n"
+"    font-weight: bold;\n"
+"    font-size: 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #fdff74;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #ffc662;\n"
+"}")
         self.btn_instruction.setObjectName("btn_instruction")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(210, 70, 191, 31))
+        self.label.setGeometry(QtCore.QRect(210, 70, 171, 31))
         self.label.setObjectName("label")
         self.btn_apropos = QtWidgets.QPushButton(Form)
         self.btn_apropos.setGeometry(QtCore.QRect(1130, 870, 151, 41))
