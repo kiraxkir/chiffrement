@@ -9,7 +9,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from main import cryptage
 
+
+
 class Ui_encryption_screen(object):
+
+    def retour_main(self):
+        from ui_main import Ui_Form
+        self.windows=QtWidgets.QWidget()
+        self.ui=Ui_Form()
+        self.ui.setupUi(self.windows)
+        self.windows.show()
+      
 
 
     def open_file(self):
@@ -174,6 +184,7 @@ class Ui_encryption_screen(object):
         self.label_2.setGeometry(QtCore.QRect(720, 130, 281, 41))
         self.label_2.setObjectName("label_2")
         self.btnRetour = QtWidgets.QPushButton(encryption_screen)
+        self.btnRetour.clicked.connect(self.retour_main)
         self.btnRetour.setGeometry(QtCore.QRect(30, 30, 141, 41))
         self.btnRetour.setStyleSheet("")
         self.btnRetour.setAutoDefault(False)

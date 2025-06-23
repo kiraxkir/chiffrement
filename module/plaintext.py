@@ -67,6 +67,3 @@ def invplaintext(lien_fichier) :
             tmp2.append(tmp1)
         resultat.append(tmp2)
     return resultat
-
-
-

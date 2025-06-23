@@ -39,7 +39,7 @@ def RSA(cle):
     filename="encryption_result "+date_str+"/"
 
 
-    folder_path = os.path.join(desktop, filename)
+    folder_path = os.path.join(desktop,filename)
         
     
     os.makedirs(folder_path,exist_ok=True)

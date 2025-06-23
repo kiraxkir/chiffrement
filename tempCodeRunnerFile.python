@@ -1,7 +1,0 @@
-import os
-desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-folder_name = "MonDossier"
-folder_path = os.path.join(desktop, "encryption_resultat/")
-os.makedirs(folder_path,exist_ok=True)
-with open(folder_path+"cle_chiffré.txt","w+") as f :
-    f.write("is work !!")
