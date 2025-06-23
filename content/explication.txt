@@ -24,3 +24,8 @@ qui ecrit tout en binaire et applatit le resultat ce qui facilte la lecture lors
 with open("resultat_bin.bin","rb") as f:
     data=f.read()
     octet=list(data)
+
+
+
+
+le dossier se creer dans RSA

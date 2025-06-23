@@ -32,7 +32,3 @@ filename="encryption_result "+date_str+"/"
 
 fichier=rsa.RSA(key())
 
-print(fichier)
-
-
- 

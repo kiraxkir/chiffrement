@@ -7,9 +7,9 @@ os.makedirs(final_folder,exist_ok=True)
 
 
 
+print(final_folder)
 
 import plaintext
-print(plaintext.plaintext("exemple.txt"))
 import subyte
 import mixcolumn
 import shiftrows
@@ -21,6 +21,7 @@ import round_cle
 from copy import copy
 import shutil # pour le deplacement du dossier après chiffrement 
 from generateur_mdp import fichier 
+folder_path = os.path.join(desktop,fichier)
 
 def chiffrement (message,user_cle):
     message=[c for c in message]
@@ -75,7 +76,7 @@ def cryptage(lien_fichier):
             for ligne in block:
                 f.write(bytes(ligne))
     
-
+    
     shutil.move(folder_path, final_folder)
     end = time.perf_counter()
     print(f"le chiffrement a pris {end - start:.4f} second")
@@ -115,5 +116,3 @@ def decryptage(lien_fichier,cle):
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
 
-
-print(cryptage("exemple.txt"))
