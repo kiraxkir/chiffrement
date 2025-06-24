@@ -1,14 +1,8 @@
 import sys
 sys.path.append("module")
+sys.path.append("key_encryption")
+import invrsa
 import os
-desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-final_folder= os.path.join(desktop,"chiffrement_resultat")
-os.makedirs(final_folder,exist_ok=True)
-
-
-
-print(final_folder)
-
 import plaintext
 import subyte
 import mixcolumn
@@ -21,7 +15,6 @@ import round_cle
 from copy import copy
 import shutil # pour le deplacement du dossier après chiffrement 
 from generateur_mdp import fichier 
-folder_path = os.path.join(desktop,fichier)
 
 def chiffrement (message,user_cle):
     message=[c for c in message]
@@ -65,19 +58,15 @@ def cryptage(lien_fichier):
         for j in range ( 5): 
             x=chiffrement(x,cle[j])
         resultat.append(x)
-   
-    desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-
-    folder_path = os.path.join(desktop,fichier)
+    
         # "encryption_resultat/
-  
-    with open(folder_path+"fichier_chiffré.bin","wb") as f:
+    filename=os.path.join(fichier,"encrypted_file.bin")
+    with open(filename,"wb") as f:
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
     
     
-    shutil.move(folder_path, final_folder)
     end = time.perf_counter()
     print(f"le chiffrement a pris {end - start:.4f} second")
 
@@ -85,16 +74,17 @@ def cryptage(lien_fichier):
 
 
 
-def decryptage(lien_fichier,cle):
-    
+def decryptage(lien_fichier,lien_cle,lien_private):
     start = time.perf_counter()
-
+    cle=invrsa.dechiffrement_cle(lien_cle,lien_private)
+    cle=round_cle.invcle(cle)
+    start = time.perf_counter()
     texte=plaintext.invplaintext(lien_fichier) # est un fichier binaire invisible a l oeil nu
-    cle=[c for c in cle]
+    print(np.shape(np.array(texte)))
     decrype=[]
-    resultat= texte
 
-    for i in resultat:
+
+    for i in texte:
         y=i
         for j in range(1,6):
 
@@ -107,12 +97,17 @@ def decryptage(lien_fichier,cle):
                 x=chr(y[a][b])
 
                 decrype.append(x)    
-    r_f =''.join([c for c in decrype]) # resultat final
-
+    resultat =''.join([c for c in decrype]) # resultat final
+    print(resultat)
     with open("message_déchiffré.txt","w+") as f:
-        f.write(str(r_f))
+        f.write(resultat)
+
     fin = time.perf_counter()
 
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
 
+
+
+
+print(decryptage("encrypted_file.bin","key.txt","private.txt"))

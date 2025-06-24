@@ -31,6 +31,7 @@ def cle():
     [0x11,0x12,0x13,0x14]]
 
     user_cle=generateur_mdp.key()
+
     cle=[]
     for i in range(5) :
         x=round_cle(user_cle,rcorn[i])

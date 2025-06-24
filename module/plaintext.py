@@ -51,7 +51,11 @@ def plaintext(lien_fichier):
     return resultat
 #tabMess sera utiliser dans message round
 
+
+
 def invplaintext(lien_fichier) :
+
+
     with open(lien_fichier,"rb") as f:
         bit=f.read()
         l_c=list(bit) # liste chiffre
@@ -67,3 +71,4 @@ def invplaintext(lien_fichier) :
             tmp2.append(tmp1)
         resultat.append(tmp2)
     return resultat
+

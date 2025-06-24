@@ -24,3 +24,4 @@ def dechiffrement_cle(lien_cle,lien_dn) :
             resultat.append(tmp1)
     
     return resultat
+

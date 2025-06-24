@@ -16,18 +16,27 @@ class Ui_decryption_screen(object):
     def open_key(self):
         filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)')
         self.lineEdit_key_encrypted_3.setText(filename[0])
+        return filename[0]
+    
         
     def open_private_key(self):
         filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)')
         self.lineEdit_private_key_2.setText(filename[0])
+        print(filename)
 
     def open_texte(self):
         filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)')
         self.lineEdit_file.setText(filename[0])
+        print(filename)
 
+
+    def decrypte(self) :
+        fichier = self.lineEdit_file.text()
+        private_key=self.lineEdit_private_key_2.text()
+        key=self.lineEdit_key_encrypted_3.text()
+        print(fichier,key,private_key)
 
     def setupUi(self, decryption_screen):
-
         decryption_screen.setObjectName("decryption_screen")
         decryption_screen.resize(1373, 1079)
         decryption_screen.setStyleSheet("/* === Fond général === */\n"
@@ -182,6 +191,7 @@ class Ui_decryption_screen(object):
         self.btn_browser_key.setFlat(False)
         self.btn_browser_key.setObjectName("btn_browser_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
+        self.btnExecuter.clicked.connect(self.decrypte)
         self.btnExecuter.setGeometry(QtCore.QRect(310, 660, 181, 41))
         self.btnExecuter.setStyleSheet("")
         self.btnExecuter.setObjectName("btnExecuter")
