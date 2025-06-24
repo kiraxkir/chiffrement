@@ -3,6 +3,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class instruction_screen(object):
+    
+
+    
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(2082, 1102)
