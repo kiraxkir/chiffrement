@@ -43,16 +43,21 @@ def RSA(cle):
         
     
     os.makedirs(folder_path,exist_ok=True)
-
-
-    with open(folder_path+"cle_chiffré.txt","w+") as f:
-
+    with open("cle_chiffré.txt","w+") as f:
         for block in liste_message_chiffré :
             for valeur in block :
 
                 f.write(f"{valeur} \n")
-    with open(folder_path+"cle_privé.txt","w+") as c:
 
-        c.write(f"{str((d,n))} le premier c est d et le deuxieme n")
-        
-        return filename
+    with open("cle_privé.txt","w+") as c:
+        c.write(f"{d}\n")
+        c.write(f"{n}")
+
+
+
+      
+    return filename
+
+a=[[66, 30, 88, 83], [111, 113, 89, 119], [90, 101, 87, 82], [83, 87, 87, 101]]
+
+print(RSA(a))
