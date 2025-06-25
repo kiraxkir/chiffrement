@@ -43,6 +43,7 @@ def decryptage(lien_fichier,lien_cle,lien_private):
     for i in texte:
         y=i
         for j in range(1,6):
+            print(y)
 
             y=dechiffrement(y,cle[-j])
 

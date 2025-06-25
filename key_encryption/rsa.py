@@ -47,14 +47,14 @@ def RSA(cle):
             x=0
         liste_message_chiffré.append(tmp)
     path=os.path.join(folder_path,"key.txt")
-
+    print(path)
     with open(path,"w+") as f:
         for block in liste_message_chiffré :
             for valeur in block :
 
                 f.write(f"{valeur} \n")
     path=os.path.join(folder_path,"private.txt")
-
+    print(path)
     with open(path,"w+") as c:
         c.write(f"{d}\n")
         c.write(f"{n}")   
