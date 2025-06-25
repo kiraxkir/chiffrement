@@ -18,6 +18,8 @@ folder_path = os.path.join(desktop,filename)
 os.makedirs(folder_path,exist_ok=True)
 
 
+# j ai l ai executer dans round cle, je ne sais pas pourquoi aussi 
+
 
 def RSA(cle):
     #generation des clé
@@ -56,5 +58,6 @@ def RSA(cle):
     with open(path,"w+") as c:
         c.write(f"{d}\n")
         c.write(f"{n}")   
-
-    return folder_path
+    print("RSA !!!!!!!!!!!!!!!!!!!!!!")
+    return 'rsa '
+a=[[107, 82, 88, 102], [74, 75, 84, 90], [73, 86, 66, 88], [106, 83, 102, 118]]

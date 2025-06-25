@@ -14,24 +14,8 @@ from pprint import pprint
 import round_cle
 from copy import copy
 import shutil # pour le deplacement du dossier après chiffrement 
-from generateur_mdp import fichier 
+#from generateur_mdp import fichier
 
-def chiffrement (message,user_cle):
-    message=[c for c in message]
-
-    cle=[c for c in user_cle ]
-    #subyte part
-    m1=subyte.subyte(message,user_cle)
-    
-
-    #shiftrow part 
-    m2=shiftrows.shiftrows(m1)
-
-    #mix columns
-    m3=mixcolumn.mixcolumn(m2)
-    #addround key
-    m4=Addroundkey.addroundkey(m3,cle)
-    return m4
 
 def dechiffrement (message,user_cle):
     message=[c for c in message]
@@ -46,41 +30,13 @@ def dechiffrement (message,user_cle):
     m4=subyte.invsubyte(m3,cle)
     return m4
 
-def cryptage(lien_fichier):
-    cle=round_cle.cle()
-    start = time.perf_counter()
-    texte=plaintext.plaintext(lien_fichier)
-    
-
-    resultat=[]
-    for i in texte : 
-        x=i
-        for j in range ( 5): 
-            x=chiffrement(x,cle[j])
-        resultat.append(x)
-    
-        # "encryption_resultat/
-    filename=os.path.join(fichier,"encrypted_file.bin")
-    with open(filename,"wb") as f:
-        for block in resultat:
-            for ligne in block:
-                f.write(bytes(ligne))
-    
-    
-    end = time.perf_counter()
-    print(f"le chiffrement a pris {end - start:.4f} second")
-
-    return "merci"
-
-
-
 def decryptage(lien_fichier,lien_cle,lien_private):
     start = time.perf_counter()
-    cle=invrsa.dechiffrement_cle(lien_cle,lien_private)
-    cle=round_cle.invcle(cle)
+    key=invrsa.dechiffrement_cle(lien_cle,lien_private)
+    cle=round_cle.invcle(key)
     start = time.perf_counter()
     texte=plaintext.invplaintext(lien_fichier) # est un fichier binaire invisible a l oeil nu
-    print(np.shape(np.array(texte)))
+  
     decrype=[]
 
 
@@ -107,7 +63,6 @@ def decryptage(lien_fichier,lien_cle,lien_private):
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
 
-
-
+# [[90, 87, 122, 89], [72, 103, 101, 85], [79, 81, 84, 76], [102, 116, 98, 85]]
 
 print(decryptage("encrypted_file.bin","key.txt","private.txt"))
