@@ -23,8 +23,7 @@ class Ui_Form(object):
         self.ui=Ui_encryption_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        Form.hide()
-
+        Form.close()
     def open_decryption(self):
         from decryption_screen import Ui_decryption_screen
         self.windows=QtWidgets.QWidget()
@@ -38,11 +37,23 @@ class Ui_Form(object):
         self.ui=instruction_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-      #  Form.close()
+        Form.close()
+
+    def position( self):
+        largeur = Form.width()
+        hauteur = Form.height()
+        print("Taille actuelle :", largeur, "x", hauteur)
+        pos = Form.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+        print(pos.x(), pos.y())
     
+
     def setupUi(self, Form):
+
+        Form.move(266,0)
+        Form.setWindowTitle("hey")
         Form.setObjectName("Form")
-        Form.resize(1345, 959)
+        Form.setFixedSize(1411 , 1028)
+        Form.resize(1411 , 981)
         Form.setStyleSheet("QWidget {\n"
 "    background-color: qlineargradient(\n"
 "        spread:pad,\n"
@@ -143,6 +154,7 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(210, 70, 171, 31))
         self.label.setObjectName("label")
         self.btn_apropos = QtWidgets.QPushButton(Form)
+        self.btn_apropos.clicked.connect(self.position)
         self.btn_apropos.setGeometry(QtCore.QRect(1130, 870, 151, 41))
         self.btn_apropos.setObjectName("btn_apropos")
 

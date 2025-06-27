@@ -1,4 +1,0 @@
-with open ("doc.docx", "r+") as f :
-    contenu=f.read()
-
-print(contenu)
