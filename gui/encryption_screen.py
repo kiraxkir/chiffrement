@@ -7,8 +7,8 @@ from PyQt5.QtWidgets import QDialog,QFileDialog
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from main import cryptage
 
+from cryptage import cryptage
 
 
 class Ui_encryption_screen(object):
@@ -19,6 +19,8 @@ class Ui_encryption_screen(object):
         self.ui=Ui_Form()
         self.ui.setupUi(self.windows)
         self.windows.show()
+        
+
       
 
 
@@ -29,14 +31,15 @@ class Ui_encryption_screen(object):
 
     def chiffrement(self) :
         texte=self.lineEdit_file.text()
-        print(texte)
-        cryptage(texte)
         name=self.name_line.text()
-        print(name)
+        cryptage(texte,name)
     def setupUi(self, encryption_screen):
+        encryption_screen.setWindowTitle("Fenêtre de chiffrement")     
         encryption_screen.setObjectName("encryption_screen")
         encryption_screen.resize(1569, 1122)
+
         encryption_screen.setStyleSheet("/* === Fond général === */\n"
+                                        
 "QWidget {\n"
 "    background-color: #dceeff;\n"
 "    font-family: \'Segoe UI\', Arial, sans-serif;\n"
@@ -184,6 +187,7 @@ class Ui_encryption_screen(object):
         self.label_2.setGeometry(QtCore.QRect(720, 130, 281, 41))
         self.label_2.setObjectName("label_2")
         self.btnRetour = QtWidgets.QPushButton(encryption_screen)
+        self.btnRetour.hide()
         self.btnRetour.clicked.connect(self.retour_main)
         self.btnRetour.setGeometry(QtCore.QRect(30, 30, 141, 41))
         self.btnRetour.setStyleSheet("")
@@ -201,7 +205,9 @@ class Ui_encryption_screen(object):
 
     def retranslateUi(self, encryption_screen):
         _translate = QtCore.QCoreApplication.translate
-        encryption_screen.setWindowTitle(_translate("encryption_screen", "Form"))
+        encryption_screen.setWindowTitle(_translate("encryption_screen", "chiffrement"))
+        encryption_screen.setWindowIcon(QIcon('image/logo.png') )
+
         self.label_3.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">username :</span></p></body></html>"))
         self.name_line.setPlaceholderText(_translate("encryption_screen", "votre nom ..."))
         self.label_4.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:10pt;\">identification</span></p></body></html>"))
@@ -223,6 +229,8 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     encryption_screen = QtWidgets.QWidget()
+   
+
     ui = Ui_encryption_screen()
     ui.setupUi(encryption_screen)
     encryption_screen.show()

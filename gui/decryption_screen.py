@@ -7,9 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) 
 from PyQt5.QtWidgets import QDialog,QFileDialog
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
-from main import cryptage
-
+import decryptage
 
 
 class Ui_decryption_screen(object):
@@ -20,12 +18,16 @@ class Ui_decryption_screen(object):
     
         
     def open_private_key(self):
-        filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)')
+        filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)', 'bin file(* .bin)')
         self.lineEdit_private_key_2.setText(filename[0])
         print(filename)
 
     def open_texte(self):
-        filename=QFileDialog.getOpenFileName(None,'open file', 'C:/Users/HP/Desktop/encryption_resultat' ,'txt file(*.txt)')
+        filename= QFileDialog.getOpenFileName(
+            None,
+        'Open File',
+        'C:/Users/HP/Desktop/encryption_resultat', 'Binary Files (*.bin)*'
+            )
         self.lineEdit_file.setText(filename[0])
         print(filename)
 
@@ -34,8 +36,8 @@ class Ui_decryption_screen(object):
         fichier = self.lineEdit_file.text()
         private_key=self.lineEdit_private_key_2.text()
         key=self.lineEdit_key_encrypted_3.text()
-        print(fichier,key,private_key)
-
+        decryptage.decryptage(fichier,key,private_key)
+        
     def setupUi(self, decryption_screen):
         decryption_screen.setObjectName("decryption_screen")
         decryption_screen.resize(1373, 1079)
@@ -201,6 +203,7 @@ class Ui_decryption_screen(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.btnRetour = QtWidgets.QPushButton(decryption_screen)
+        self.btnRetour.hide()
         self.btnRetour.setGeometry(QtCore.QRect(70, 40, 181, 41))
         self.btnRetour.setStyleSheet("")
         self.btnRetour.setObjectName("btnRetour")

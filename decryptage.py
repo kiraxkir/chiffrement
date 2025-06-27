@@ -1,3 +1,11 @@
+
+import os
+
+from datetime import datetime
+
+#creation du dossier pour le resultat
+# os.rename(r"C:\Users\HP\Desktop\encryption_project\kira","gui")
+
 import sys
 sys.path.append("module")
 sys.path.append("key_encryption")
@@ -43,8 +51,6 @@ def decryptage(lien_fichier,lien_cle,lien_private):
     for i in texte:
         y=i
         for j in range(1,6):
-            print(y)
-
             y=dechiffrement(y,cle[-j])
 
         for a in range(4):
@@ -55,8 +61,21 @@ def decryptage(lien_fichier,lien_cle,lien_private):
 
                 decrype.append(x)    
     resultat =''.join([c for c in decrype]) # resultat final
-    print(resultat)
-    with open("message_déchiffré.txt","w+") as f:
+
+
+
+    now=datetime.now()
+    date_str = now.strftime("%d.%m.%y-%Hh%M")
+    desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+    desktop= os.path.join(desktop,"dechiffrement")
+    os.makedirs(desktop,exist_ok=True)
+    filename="decryption_result "+date_str
+    folder_path = os.path.join(desktop,filename)
+
+    os.makedirs(folder_path,exist_ok=True)
+
+    name_file= os.path.join(folder_path,"message_déchiffré.txt")
+    with open(name_file,"w+") as f:
         f.write(resultat)
 
     fin = time.perf_counter()
@@ -65,5 +84,3 @@ def decryptage(lien_fichier,lien_cle,lien_private):
     return "merci"
 
 # [[90, 87, 122, 89], [72, 103, 101, 85], [79, 81, 84, 76], [102, 116, 98, 85]]
-
-print(decryptage("encrypted_file.bin","key.txt","private.txt"))

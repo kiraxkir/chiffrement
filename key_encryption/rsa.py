@@ -15,13 +15,12 @@ desktop= os.path.join(desktop,"chiffrement_resultat")
 os.makedirs(desktop,exist_ok=True)
 filename="encryption_result "+date_str
 folder_path = os.path.join(desktop,filename)
-os.makedirs(folder_path,exist_ok=True)
-
-
 # j ai l ai executer dans round cle, je ne sais pas pourquoi aussi 
 
 
 def RSA(cle):
+    
+
     #generation des clé
     p=randprime(10**20,10**38) # j ai choisi arbitrairement les valeur de p et q 
 
@@ -46,18 +45,26 @@ def RSA(cle):
             y=0
             x=0
         liste_message_chiffré.append(tmp)
+       
+   # creation _ du fichier de sauvegrade
+
+
+    os.makedirs(folder_path,exist_ok=True)
+
+ 
+
     path=os.path.join(folder_path,"key.txt")
-    print(path)
+
     with open(path,"w+") as f:
         for block in liste_message_chiffré :
             for valeur in block :
 
                 f.write(f"{valeur} \n")
     path=os.path.join(folder_path,"private.txt")
-    print(path)
+
     with open(path,"w+") as c:
         c.write(f"{d}\n")
         c.write(f"{n}")   
     print("RSA !!!!!!!!!!!!!!!!!!!!!!")
     return 'rsa '
-a=[[107, 82, 88, 102], [74, 75, 84, 90], [73, 86, 66, 88], [106, 83, 102, 118]]
+

@@ -2,9 +2,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-from encryption_screen import Ui_encryption_screen
-from decryption_screen import Ui_decryption_screen
-from instruction_screen import instruction_screen
+
 class Ui_Form(object):
     #pour la fermuture de la fenetre 
     def closeEvent(self, event):
@@ -20,19 +18,22 @@ class Ui_Form(object):
             event.ignore()
     # pour ouvrir les autres fenetres 
     def open_encryption(self):
+        from encryption_screen import Ui_encryption_screen
         self.windows=QtWidgets.QWidget()
         self.ui=Ui_encryption_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        
+        Form.hide()
 
     def open_decryption(self):
+        from decryption_screen import Ui_decryption_screen
         self.windows=QtWidgets.QWidget()
         self.ui=Ui_decryption_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        #Form.close()
+        Form.close()
     def open_instruction(self):
+        from instruction_screen import instruction_screen
         self.windows=QtWidgets.QWidget()
         self.ui=instruction_screen()
         self.ui.setupUi(self.windows)
