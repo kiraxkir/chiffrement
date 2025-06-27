@@ -34,7 +34,7 @@ def chiffrement (message,user_cle):
     m4=Addroundkey.addroundkey(m3,cle)
     return m4
 
-def cryptage(lien_fichier):
+def cryptage(lien_fichier,name):
     cle=round_cle.cle()
     start = time.perf_counter()
     texte=plaintext.plaintext(lien_fichier)
@@ -47,17 +47,14 @@ def cryptage(lien_fichier):
     
        # "encryption_resultat/
     filename=os.path.join(folder_path,"encrypted_file.bin")
-    print("message=",filename)
+
     with open(filename,"wb") as f:
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
     
-    
+    os.rename(folder_path, folder_path+'by'+name)
     end = time.perf_counter()
     print(f"le chiffrement a pris {end - start:.4f} second")
 
     return "merci"
-
-
-print(cryptage("exemple.txt"))
