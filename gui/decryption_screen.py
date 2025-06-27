@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # ça permet d acceder au fichier parent a celui ci genre os.path.dirname(__file__), '..')) donne le chemin absolu avec ... a la fin et os.path.abspath resous ce chemin
 
 
-from PyQt5.QtWidgets import QDialog,QFileDialog
+from PyQt5.QtWidgets import QDialog,QFileDialog, QMessageBox
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import decryptage
@@ -33,11 +33,66 @@ class Ui_decryption_screen(object):
 
 
     def decrypte(self) :
+
+        name= self.name_line.text()
         fichier = self.lineEdit_file.text()
         private_key=self.lineEdit_private_key_2.text()
         key=self.lineEdit_key_encrypted_3.text()
-        decryptage.decryptage(fichier,key,private_key)
         
+        if name =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("name is require")
+            msg.setText(" entrer un nom dans le champ name !!!")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+        if fichier =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("fichier requis")
+            msg.setText(" entrer le chemin du fichier a dechiffrer")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+        
+        if private_key =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("clé requis")
+            msg.setText(" entrer le chemin de la clé privé ")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+        if key =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("clé requis")
+            msg.setText(" entrer le chemin de la clé chiffré")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+
+        try:
+            decryptage.decryptage(fichier,key,private_key)
+            
+            # Message de succès
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setWindowTitle("Succès")
+            msg.setText("Le message a été dechiffré avec succès.")
+            msg.setDetailedText('le resultat est sauvegardé sur le bureau dans un dossier appelé dechiffrement_reussi')
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+
+        except Exception as error:
+            # Affichage d'une erreur si le dechiffrement échoue
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Erreur lors du chiffrement")
+            msg.setText(f"Une erreur est survenue :\n{str(error)}")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()      
     def setupUi(self, decryption_screen):
         decryption_screen.setObjectName("decryption_screen")
         decryption_screen.resize(1373, 1079)

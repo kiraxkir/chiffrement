@@ -4,6 +4,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class instruction_screen(object):
     
+    def retour_main(self):
+        from ui_main import Ui_Form
+        self.windows=QtWidgets.QWidget()
+        self.ui=Ui_Form()
+        self.ui.setupUi(self.windows)
+        self.windows.show()
+        # Form.hide()
+
+        
+
+    
 
     
     def setupUi(self, Form):
@@ -45,6 +56,8 @@ class instruction_screen(object):
 "}\n"
 "")
         self.btn_retour = QtWidgets.QPushButton(Form)
+        self.btn_retour.clicked.connect(self.retour_main)
+        self.btn_retour.hide()
         self.btn_retour.setGeometry(QtCore.QRect(80, 50, 151, 41))
         self.btn_retour.setObjectName("btn_retour")
         self.titreInstruction = QtWidgets.QLabel(Form)

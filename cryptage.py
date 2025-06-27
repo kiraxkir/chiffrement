@@ -1,18 +1,20 @@
 import sys
+
 sys.path.append("module")
 sys.path.append("key_encryption")
 import os
+import plaintext
+
 import plaintext
 import subyte
 import mixcolumn
 import shiftrows
 import Addroundkey
-import numpy as np
+from copy import copy
 import time
 from pprint import pprint
-import round_cle
-from copy import copy
-from rsa import*
+from rsa import folder_path
+    
 import shutil # pour le deplacement du dossier après chiffrement 
 
 
@@ -35,6 +37,11 @@ def chiffrement (message,user_cle):
     return m4
 
 def cryptage(lien_fichier,name):
+
+
+    import round_cle
+
+
     cle=round_cle.cle()
     start = time.perf_counter()
     texte=plaintext.plaintext(lien_fichier)
@@ -58,3 +65,4 @@ def cryptage(lien_fichier,name):
     print(f"le chiffrement a pris {end - start:.4f} second")
 
     return "merci"
+

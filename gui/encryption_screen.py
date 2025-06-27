@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # ça permet d acceder au fichier parent a celui ci genre os.path.dirname(__file__), '..')) donne le chemin absolu avec ... a la fin et os.path.abspath resous ce chemin
 
-from PyQt5.QtWidgets import QDialog,QFileDialog
+from PyQt5.QtWidgets import QDialog,QFileDialog, QMessageBox
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -19,9 +19,16 @@ class Ui_encryption_screen(object):
         self.ui=Ui_Form()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        
 
-      
+    
+    def position( self):
+        largeur = encryption_screen.width()
+        hauteur = encryption_screen.height()
+
+        print("Taille actuelle :", largeur, "x", hauteur)    
+
+        pos = encryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+        print(pos.x(), pos.y())  
 
 
     def open_file(self):
@@ -32,10 +39,50 @@ class Ui_encryption_screen(object):
     def chiffrement(self) :
         texte=self.lineEdit_file.text()
         name=self.name_line.text()
-        cryptage(texte,name)
+
+        if name =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("name is require")
+            msg.setText(" entrer un nom dans le champ name !!!")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+
+        if texte =='' :
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("required file")
+            msg.setText("entrer le chemin du message !")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+            return
+        
+        try:
+            cryptage(texte, name)
+
+            # Message de succès
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setWindowTitle("Succès")
+            msg.setText("Le message a été chiffré avec succès.")
+            msg.setDetailedText('le resultat est sauvegardé sur le bureau dans un dossier appelé chiffrement_reussi')
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+
+        except Exception as error:
+            # Affichage d'une erreur si le chiffrement échoue
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Erreur lors du chiffrement")
+            msg.setText(f"Une erreur est survenue :\n{str(error)}")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
     def setupUi(self, encryption_screen):
         encryption_screen.setWindowTitle("Fenêtre de chiffrement")     
         encryption_screen.setObjectName("encryption_screen")
+        #encryption_screen.setFixedSize(1569, 1122)
+
         encryption_screen.resize(1569, 1122)
 
         encryption_screen.setStyleSheet("/* === Fond général === */\n"
@@ -166,7 +213,9 @@ class Ui_encryption_screen(object):
         self.line_key.setStyleSheet("background-color: rgb(235, 242, 255);")
         self.line_key.setObjectName("line_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
-        self.btnExecuter.clicked.connect(self.chiffrement)
+       # self.btnExecuter.clicked.connect(self.chiffrement)
+        self.btnExecuter.clicked.connect(self.position)
+
         self.btnExecuter.setGeometry(QtCore.QRect(260, 560, 181, 41))
         self.btnExecuter.setStyleSheet("")
         self.btnExecuter.setObjectName("btnExecuter")
@@ -206,7 +255,7 @@ class Ui_encryption_screen(object):
     def retranslateUi(self, encryption_screen):
         _translate = QtCore.QCoreApplication.translate
         encryption_screen.setWindowTitle(_translate("encryption_screen", "chiffrement"))
-        encryption_screen.setWindowIcon(QIcon('image/logo.png') )
+
 
         self.label_3.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">username :</span></p></body></html>"))
         self.name_line.setPlaceholderText(_translate("encryption_screen", "votre nom ..."))
