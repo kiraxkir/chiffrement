@@ -9,7 +9,7 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 ## Screenshots
 
-![App Screenshot](gui/image/screenshot.png)
+![App Screenshot](PROJET_CHIFFREMENT/gui/image/screenshot.png)
 
 
 ## Fonctionnalités
@@ -43,7 +43,7 @@ python main.py
 ```
 
 ### demostration 
-![App demo ](gui/image/demo.mp4)
+![App demo ](/PROJET_CHIFFREMENT/gui/image/demo.mp4)
 
 ## requis
 - Python 3.9+
@@ -57,6 +57,7 @@ python main.py
 ## Documentation
 
 [Documentation](documentation/chiffrement_hybride)
+[cahier de charge](documentation/cahier_de_charge)
 
 
 ## FAQ
@@ -71,9 +72,11 @@ Mon système de chiffrement est premier plus simple d utilisation grace a l inte
 Hi, I'm a computer science student, passionate about computers 🧑‍💻, programming and mathematics ➗. Don't hesitate to contact me.
 
 [mon portfolio](https://kiraxkir.github.io/portfolio/)
+
+
 ## Tech Stack
 
-** U I :** PYQT5 
+**U I :** PYQT5 
 
 **LANGAGE** :  PYTHON 
 

@@ -38,8 +38,8 @@ def round_cle(cle_user,round):
 
 
 def cle():
-    import generateur_mdp
-    from rsa import RSA
+    from module import generateur_mdp
+    from key_encryption.rsa import RSA
 
     key=generateur_mdp.key()
     RSA(key)

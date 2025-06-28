@@ -9,17 +9,18 @@ from datetime import datetime
 import sys
 sys.path.append("module")
 sys.path.append("key_encryption")
-import invrsa
+
 import os
-import plaintext
-import subyte
-import mixcolumn
-import shiftrows
-import Addroundkey
+from key_encryption.invrsa import dechiffrement_cle
+from module import plaintext    
+from module import subyte
+from module import mixcolumn
+from module import shiftrows              # les different package garce a type NUL > __init__.py  
+from module import Addroundkey
 import numpy as np
 import time
 from pprint import pprint
-import round_cle
+from module import round_cle
 from copy import copy
 import shutil # pour le deplacement du dossier après chiffrement 
 #from generateur_mdp import fichier
@@ -40,7 +41,7 @@ def dechiffrement (message,user_cle):
 
 def decryptage(lien_fichier,lien_cle,lien_private):
     start = time.perf_counter()
-    key=invrsa.dechiffrement_cle(lien_cle,lien_private)
+    key=dechiffrement_cle(lien_cle,lien_private)
     cle=round_cle.invcle(key)
     start = time.perf_counter()
     texte=plaintext.invplaintext(lien_fichier) # est un fichier binaire invisible a l oeil nu

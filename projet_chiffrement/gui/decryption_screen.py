@@ -90,11 +90,24 @@ class Ui_decryption_screen(object):
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
             msg.setWindowTitle("Erreur lors du chiffrement")
-            msg.setText(f"Une erreur est survenue :\n{str(error)}")
+            msg.setText(f"Une erreur est survenue :\n{"les clé ne sont pas valide"}")
+            msg.setDetailedText(str(error))
             msg.setStandardButtons(QMessageBox.Ok)
-            msg.exec_()      
+            msg.exec_()  
+    # def position( self):
+    #     largeur = decryption_screen.width()
+    #     hauteur = decryption_screen.height()
+
+    #     print("Taille actuelle :", largeur, "x", hauteur)    
+
+    #     pos = decryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+    #     print(pos.x(), pos.y())  
+
     def setupUi(self, decryption_screen):
         decryption_screen.setObjectName("decryption_screen")
+        decryption_screen.move(333 , 4)
+        decryption_screen.setFixedSize( 1351 ,1055)
+
         decryption_screen.resize(1373, 1079)
         decryption_screen.setStyleSheet("/* === Fond général === */\n"
 "QWidget {\n"
@@ -172,16 +185,16 @@ class Ui_decryption_screen(object):
 "}\n"
 "")
         self.frame = QtWidgets.QFrame(decryption_screen)
-        self.frame.setGeometry(QtCore.QRect(330, 10, 1351, 80))
+        self.frame.setGeometry(QtCore.QRect(200, 10, 1351, 80))
         self.frame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.mainTitle = QtWidgets.QLabel(self.frame)
-        self.mainTitle.setGeometry(QtCore.QRect(300, 10, 401, 51))
+        self.mainTitle.setGeometry(QtCore.QRect(320, 10, 401, 51))
         self.mainTitle.setFrameShadow(QtWidgets.QFrame.Plain)
         self.mainTitle.setObjectName("mainTitle")
         self.label_2 = QtWidgets.QLabel(decryption_screen)
-        self.label_2.setGeometry(QtCore.QRect(670, 110, 191, 41))
+        self.label_2.setGeometry(QtCore.QRect(600, 100, 191, 41))
         self.label_2.setObjectName("label_2")
         self.frame_2 = QtWidgets.QFrame(decryption_screen)
         self.frame_2.setGeometry(QtCore.QRect(350, 160, 771, 781))
@@ -249,6 +262,7 @@ class Ui_decryption_screen(object):
         self.btn_browser_key.setObjectName("btn_browser_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
         self.btnExecuter.clicked.connect(self.decrypte)
+    #    self.btnExecuter.clicked.connect(self.position)
         self.btnExecuter.setGeometry(QtCore.QRect(310, 660, 181, 41))
         self.btnExecuter.setStyleSheet("")
         self.btnExecuter.setObjectName("btnExecuter")
