@@ -9,7 +9,7 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 ## Screenshots
 
-![App Screenshot](gui/image/screen_app)
+![App Screenshot](gui/image/screenshot.png)
 
 
 ## Fonctionnalités
@@ -24,12 +24,13 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 
 ## Structure du projet
-📦 chiffrement
+📦 ENCRYPTION PROJET
   ┣ 📂 project/              
   ┣ 📂 docs/                 
   ┃ ┗ 📄 cahier-de-charge.pdf  
   ┣ 📄 README.md              
-  ┗ 📄 .gitignore              
+  ┗ 📄 .gitignore    
+
 ## Installation
 
 Clonez le dépôt, installez les dépendances, puis lancez l'application :
@@ -43,9 +44,11 @@ python main.py
 
 ### demostration 
 ![App demo ](gui/image/demo.mp4)
+
 ## requis
 - Python 3.9+
 - PyQt5
+
 ## License
 
 [PROJET](documentation/license)
