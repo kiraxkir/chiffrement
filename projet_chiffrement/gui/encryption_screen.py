@@ -21,14 +21,14 @@ class Ui_encryption_screen(object):
         self.windows.show()
 
     
-    def position( self):
-        largeur = encryption_screen.width()
-        hauteur = encryption_screen.height()
+    # def position( self):
+    #     largeur = encryption_screen.width()
+    #     hauteur = encryption_screen.height()
 
-        print("Taille actuelle :", largeur, "x", hauteur)    
+    #     print("Taille actuelle :", largeur, "x", hauteur)    
 
-        pos = encryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
-        print(pos.x(), pos.y())  
+    #     pos = encryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+    #     print(pos.x(), pos.y())  
 
 
     def open_file(self):
@@ -81,9 +81,10 @@ class Ui_encryption_screen(object):
     def setupUi(self, encryption_screen):
         encryption_screen.setWindowTitle("Fenêtre de chiffrement")     
         encryption_screen.setObjectName("encryption_screen")
-        #encryption_screen.setFixedSize(1569, 1122)
+        encryption_screen.move(197,3)
+        encryption_screen.setFixedSize(1538 , 1055)
 
-        encryption_screen.resize(1569, 1122)
+      #  encryption_screen.resize(1569, 1122)
 
         encryption_screen.setStyleSheet("/* === Fond général === */\n"
                                         
@@ -213,8 +214,8 @@ class Ui_encryption_screen(object):
         self.line_key.setStyleSheet("background-color: rgb(235, 242, 255);")
         self.line_key.setObjectName("line_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
-       # self.btnExecuter.clicked.connect(self.chiffrement)
-        self.btnExecuter.clicked.connect(self.position)
+        self.btnExecuter.clicked.connect(self.chiffrement)
+        #self.btnExecuter.clicked.connect(self.position)
 
         self.btnExecuter.setGeometry(QtCore.QRect(260, 560, 181, 41))
         self.btnExecuter.setStyleSheet("")

@@ -10,8 +10,7 @@
 
 # a revoir plus tard
 
-
-from base import gfp2, gfp3, gfp9, gfp11, gfp13, gfp14
+from module.base import gfp2, gfp3, gfp9, gfp11, gfp13, gfp14
 
 import copy
 
