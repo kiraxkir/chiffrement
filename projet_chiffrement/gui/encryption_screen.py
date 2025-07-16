@@ -21,14 +21,14 @@ class Ui_encryption_screen(object):
         self.windows.show()
 
     
-    # def position( self):
-    #     largeur = encryption_screen.width()
-    #     hauteur = encryption_screen.height()
+    def position( self):
+        largeur = encryption_screen.width()
+        hauteur = encryption_screen.height()
 
-    #     print("Taille actuelle :", largeur, "x", hauteur)    
+        print("Taille actuelle :", largeur, "x", hauteur)    
 
-    #     pos = encryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
-    #     print(pos.x(), pos.y())  
+        pos = encryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+        print(pos.x(), pos.y())  
 
 
     def open_file(self):
@@ -81,8 +81,8 @@ class Ui_encryption_screen(object):
     def setupUi(self, encryption_screen):
         encryption_screen.setWindowTitle("Fenêtre de chiffrement")     
         encryption_screen.setObjectName("encryption_screen")
-        encryption_screen.move(197,3)
-        encryption_screen.setFixedSize(1538 , 1055)
+        encryption_screen.move(131 ,23)
+        encryption_screen.setFixedSize(1624 , 987)
 
       #  encryption_screen.resize(1569, 1122)
 
@@ -202,6 +202,7 @@ class Ui_encryption_screen(object):
         self.label_7.setGeometry(QtCore.QRect(290, 670, 101, 31))
         self.label_7.setObjectName("label_7")
         self.line_3 = QtWidgets.QFrame(self.frame_2)
+        self.line_3.hide()
         self.line_3.setGeometry(QtCore.QRect(290, 700, 91, 16))
         self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -210,12 +211,13 @@ class Ui_encryption_screen(object):
         self.label_8.setGeometry(QtCore.QRect(90, 780, 81, 31))
         self.label_8.setObjectName("label_8")
         self.line_key = QtWidgets.QLineEdit(self.frame_2)
+        self.line_key.hide()
         self.line_key.setGeometry(QtCore.QRect(190, 770, 351, 41))
         self.line_key.setStyleSheet("background-color: rgb(235, 242, 255);")
         self.line_key.setObjectName("line_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
         self.btnExecuter.clicked.connect(self.chiffrement)
-        #self.btnExecuter.clicked.connect(self.position)
+       # self.btnExecuter.clicked.connect(self.position)
 
         self.btnExecuter.setGeometry(QtCore.QRect(260, 560, 181, 41))
         self.btnExecuter.setStyleSheet("")
@@ -264,7 +266,9 @@ class Ui_encryption_screen(object):
         self.label_5.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:11pt;\">FILE PATH</span></p><p><br/></p></body></html>"))
         self.label_6.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">FILE PATH :</span></p></body></html>"))
         self.label_7.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">KEY USED</span></p></body></html>"))
+        self.label_7.hide()
         self.label_8.setText(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:10pt;\">Cle utilisé :</span></p></body></html>"))
+        self.label_8.hide()
         self.btnExecuter.setWhatsThis(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
         self.btnExecuter.setText(_translate("encryption_screen", "EXECUTER"))
         self.btn_browser.setWhatsThis(_translate("encryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
