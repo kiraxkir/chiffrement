@@ -94,19 +94,19 @@ class Ui_decryption_screen(object):
             msg.setDetailedText(str(error))
             msg.setStandardButtons(QMessageBox.Ok)
             msg.exec_()  
-    # def position( self):
-    #     largeur = decryption_screen.width()
-    #     hauteur = decryption_screen.height()
+    def position( self):
+        largeur = decryption_screen.width()
+        hauteur = decryption_screen.height()
 
-    #     print("Taille actuelle :", largeur, "x", hauteur)    
+        print("Taille actuelle :", largeur, "x", hauteur)    
 
-    #     pos = decryption_screen.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
-    #     print(pos.x(), pos.y())  
+        pos = decryption_screen.pos()  # Renvoie la position actuelle de la fenêtre= (QPoint)
+        print(pos.x(), pos.y())  
 
     def setupUi(self, decryption_screen):
         decryption_screen.setObjectName("decryption_screen")
-        decryption_screen.move(333 , 4)
-        decryption_screen.setFixedSize( 1351 ,1055)
+        decryption_screen.move(252,7)
+        decryption_screen.setFixedSize( 1496 , 1055)
 
         decryption_screen.resize(1373, 1079)
         decryption_screen.setStyleSheet("/* === Fond général === */\n"
@@ -185,19 +185,19 @@ class Ui_decryption_screen(object):
 "}\n"
 "")
         self.frame = QtWidgets.QFrame(decryption_screen)
-        self.frame.setGeometry(QtCore.QRect(200, 10, 1351, 80))
+        self.frame.setGeometry(QtCore.QRect(260, 10, 1351, 80))
         self.frame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.mainTitle = QtWidgets.QLabel(self.frame)
-        self.mainTitle.setGeometry(QtCore.QRect(320, 10, 401, 51))
+        self.mainTitle.setGeometry(QtCore.QRect(360, 10, 281, 51))
         self.mainTitle.setFrameShadow(QtWidgets.QFrame.Plain)
         self.mainTitle.setObjectName("mainTitle")
         self.label_2 = QtWidgets.QLabel(decryption_screen)
-        self.label_2.setGeometry(QtCore.QRect(600, 100, 191, 41))
+        self.label_2.setGeometry(QtCore.QRect(670, 110, 191, 41))
         self.label_2.setObjectName("label_2")
         self.frame_2 = QtWidgets.QFrame(decryption_screen)
-        self.frame_2.setGeometry(QtCore.QRect(350, 160, 771, 781))
+        self.frame_2.setGeometry(QtCore.QRect(380, 140, 771, 781))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -261,8 +261,8 @@ class Ui_decryption_screen(object):
         self.btn_browser_key.setFlat(False)
         self.btn_browser_key.setObjectName("btn_browser_key")
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
-        self.btnExecuter.clicked.connect(self.decrypte)
-    #    self.btnExecuter.clicked.connect(self.position)
+        #self.btnExecuter.clicked.connect(self.decrypte)
+        self.btnExecuter.clicked.connect(self.position)
         self.btnExecuter.setGeometry(QtCore.QRect(310, 660, 181, 41))
         self.btnExecuter.setStyleSheet("")
         self.btnExecuter.setObjectName("btnExecuter")
@@ -283,7 +283,7 @@ class Ui_decryption_screen(object):
     def retranslateUi(self, decryption_screen):
         _translate = QtCore.QCoreApplication.translate
         decryption_screen.setWindowTitle(_translate("decryption_screen", "Form"))
-        self.mainTitle.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:20pt; font-weight:600; text-decoration: underline;\">CHIFFREMENT HYBRIDE </span></p></body></html>"))
+        self.mainTitle.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:20pt; font-weight:600; text-decoration: underline;\"> DECHIFFREMENT  </span></p></body></html>"))
         self.label_2.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">FILE DECRYTION</span></p><p><br/></p></body></html>"))
         self.label_3.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">username :</span></p></body></html>"))
         self.name_line.setPlaceholderText(_translate("decryption_screen", "votre nom ..."))
