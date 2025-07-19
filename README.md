@@ -25,7 +25,7 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 ## Structure du projet
 
-📦 ENCRYPTION PROJET
+📦 ENCRYPTION PROJET/'edw
   ┣ 📂 .github       
   ┣ 📂 projet_chiffrement/  
   ┃   ┗ 📂 content
@@ -43,13 +43,17 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
  
 ## Installation
 
-Clonez le dépôt, installez les dépendances, puis lancez l'application :
+Clonez le dépôt puis lancez l'application :
 
 ```bash
 git clone https://github.com/kiraxkir/chiffrement.git
-cd chiffrement
-pip install -r requirements.txt
+
+cd encryption_projet
+
+python -u "main.py"
+
 python main.py
+
 ```
 
 ### demostration 
@@ -68,6 +72,7 @@ python main.py
 
 [algorithme AES ](documentation/chiffrement_hybride)
 [cahier de charge](documentation/cahier_de_charge)
+[worklow](documentation/workflow%20projet.svg)
 
 
 ## FAQ
