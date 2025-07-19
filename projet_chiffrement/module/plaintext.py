@@ -52,6 +52,8 @@ def plaintext(lien_fichier):
 #tabMess sera utiliser dans message round
 
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 def invplaintext(lien_fichier) :
 

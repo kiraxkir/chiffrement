@@ -1,10 +1,5 @@
 import sys
 sys.path.append("key_encryption")
-# import sys
-# sys.path.append("key_encryption")
-# import numpy as np
-# import generateur_mdp
-# from rsa import *
 
 
 # execution du rsa
@@ -35,6 +30,7 @@ def round_cle(cle_user,round):
     cle=[]
     return resultat
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 def cle():
@@ -56,6 +52,8 @@ def cle():
         x=round_cle(user_cle,rcorn[i])
         cle.append(x)
     return cle
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 def invcle(cle):
     user_cle = [c for c in cle]

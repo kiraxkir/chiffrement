@@ -5,9 +5,9 @@ from PyQt5.QtWidgets import QMessageBox
 
 class Ui_Form(object):
     #pour la fermuture de la fenetre 
-    def closeEvent(self, event):
+    def closeEvent(Ui_Form, event):
         reply = QMessageBox.question(
-        self,
+        Ui_Form,
         'Window Close',
         'Are you sure you want to close the window?',
         QMessageBox.Yes | QMessageBox.No,
@@ -43,7 +43,7 @@ class Ui_Form(object):
         largeur = Form.width()
         hauteur = Form.height()
         print("Taille actuelle :", largeur, "x", hauteur)
-        pos = Form.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+        pos = Form.pos() 
         print(pos.x(), pos.y())
     
 

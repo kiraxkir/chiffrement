@@ -8,7 +8,7 @@
 #InvMixColumns	14, 11, 13, 9
 #gfp2,3,9,11,13,14 sont dans le fichier base
 
-# a revoir plus tard
+# a revoir plus tardp
 
 from module.base import gfp2, gfp3, gfp9, gfp11, gfp13, gfp14
 
@@ -30,6 +30,10 @@ def mixcolumn(state):
         
     return n 
 
+
+
+ 
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 def invMixColumns(state):
 

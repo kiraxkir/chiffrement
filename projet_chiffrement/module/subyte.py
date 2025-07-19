@@ -4,14 +4,17 @@ from module.base import s_box, sbox
 import copy
 
 def subyte(m,cle_user):
+
     message=[c for c in m]
+
     cle_liste=[c for c in cle_user]
+
     for i in range(4) :
+
         for j in range( 4):
             temp=message[i][j]
             if temp > 255 :
                 temp=32
-     
             message[i][j] = sbox[temp]
 
     liste_subyte=[]
@@ -26,7 +29,8 @@ def subyte(m,cle_user):
         liste_subyte.append(temp)
     return liste_subyte
 
-    
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
 def invsubyte(m,cle_user):
     message=[c for c in m]
     cle_liste=[c for c in cle_user] 

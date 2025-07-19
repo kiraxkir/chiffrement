@@ -1,11 +1,9 @@
 import sys
-
 sys.path.append("module")
 sys.path.append("key_encryption")
 
 
 import os
-
 from module import plaintext    
 from module import subyte
 from module import mixcolumn
@@ -25,18 +23,23 @@ def chiffrement (message,user_cle):
     message=[c for c in message]
 
     cle=[c for c in user_cle ]
-    #subyte part
+    #ETAPE 1
     m1=subyte.subyte(message,user_cle)
     
 
-    #shiftrow part 
+    #ETAPE 2 
     m2=shiftrows.shiftrows(m1)
 
-    #mix columns
+    #ETAPE 3
     m3=mixcolumn.mixcolumn(m2)
-    #addround key
+
+    #ETAPE 4
     m4=Addroundkey.addroundkey(m3,cle)
+
     return m4
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 def cryptage(lien_fichier,name):
 

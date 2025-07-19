@@ -3,8 +3,6 @@ import os
 
 from datetime import datetime
 
-#creation du dossier pour le resultat
-# os.rename(r"C:\Users\HP\Desktop\encryption_project\kira","gui")
 
 import sys
 sys.path.append("module")
@@ -29,14 +27,19 @@ import shutil # pour le deplacement du dossier après chiffrement
 def dechiffrement (message,user_cle):
     message=[c for c in message]
     cle=[c for c in user_cle ]
+
     #add round key decrypt
     m1=Addroundkey.invaddroundkey(message,cle)
+
     #invmix colomuns
     m2=mixcolumn.invMixColumns(m1)
+
     #inv shiftrows
     m3=shiftrows.invshiftrows(m2)
+
     #inverse subyte
     m4=subyte.invsubyte(m3,cle)
+
     return m4
 
 def decryptage(lien_fichier,lien_cle,lien_private):
@@ -83,5 +86,3 @@ def decryptage(lien_fichier,lien_cle,lien_private):
 
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"
-
-# [[90, 87, 122, 89], [72, 103, 101, 85], [79, 81, 84, 76], [102, 116, 98, 85]]
