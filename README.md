@@ -24,13 +24,23 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 
 ## Structure du projet
-📦 ENCRYPTION PROJET
-  ┣ 📂 project/              
-  ┣ 📂 docs/                 
-  ┃ ┗ 📄 cahier-de-charge.pdf  
-  ┣ 📄 README.md              
-  ┗ 📄 .gitignore    
 
+📦 ENCRYPTION PROJET
+  ┣ 📂 .github       
+  ┣ 📂 projet_chiffrement/  
+  ┃   ┗ 📂 content
+  ┃   ┗ 📂 gui
+  ┃   ┗ 📂 key_encryption
+  ┃   ┗ 📂 module              
+  ┣ 📂 documentation/                 
+  ┃   ┗ 📄 cahier-de-charge.pdf
+  ┃   ┗ 📄 algorithme_aes.pdf  
+  ┣ 📄 README.md              
+  ┣ 📄 .gitignore 
+  ┣ 📄 README.md  
+  ┗ 📄 main.py -------- fichier a executer
+  
+ 
 ## Installation
 
 Clonez le dépôt, installez les dépendances, puis lancez l'application :
@@ -56,7 +66,7 @@ python main.py
 
 ## Documentation
 
-[Documentation](documentation/chiffrement_hybride)
+[algorithme AES ](documentation/chiffrement_hybride)
 [cahier de charge](documentation/cahier_de_charge)
 
 
