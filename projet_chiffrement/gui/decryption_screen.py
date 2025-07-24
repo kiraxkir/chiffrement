@@ -74,7 +74,7 @@ class Ui_decryption_screen(object):
             return
 
         try:
-            decryptage.decryptage(fichier,key,private_key)
+            decryptage.decryptage(fichier,key,private_key,name)
             
             # Message de succès
             msg = QMessageBox()
@@ -94,14 +94,10 @@ class Ui_decryption_screen(object):
             msg.setDetailedText(str(error))
             msg.setStandardButtons(QMessageBox.Ok)
             msg.exec_()  
-    def position( self):
-        largeur = decryption_screen.width()
-        hauteur = decryption_screen.height()
-
-        print("Taille actuelle :", largeur, "x", hauteur)    
-
-        pos = decryption_screen.pos()  # Renvoie la position actuelle de la fenêtre= (QPoint)
-        print(pos.x(), pos.y())  
+        name= self.name_line.clear()
+        fichier = self.lineEdit_file.clear()
+        private_key=self.lineEdit_private_key_2.clear()
+        key=self.lineEdit_key_encrypted_3.clear()
 
     def setupUi(self, decryption_screen):
         decryption_screen.setObjectName("decryption_screen")
@@ -212,7 +208,7 @@ class Ui_decryption_screen(object):
         self.name_line.setCursorMoveStyle(QtCore.Qt.VisualMoveStyle)
         self.name_line.setObjectName("name_line")
         self.label_5 = QtWidgets.QLabel(self.frame_2)
-        self.label_5.setGeometry(QtCore.QRect(350, 220, 111, 31))
+        self.label_5.setGeometry(QtCore.QRect(325, 220, 111, 31))
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.frame_2)
         self.label_6.setGeometry(QtCore.QRect(50, 310, 121, 31))
@@ -263,11 +259,11 @@ class Ui_decryption_screen(object):
         self.btnExecuter = QtWidgets.QPushButton(self.frame_2)
         self.btnExecuter.clicked.connect(self.decrypte)
        # self.btnExecuter.clicked.connect(self.position)
-        self.btnExecuter.setGeometry(QtCore.QRect(310, 660, 181, 41))
+        self.btnExecuter.setGeometry(QtCore.QRect(280, 660, 181, 41))
         self.btnExecuter.setStyleSheet("")
         self.btnExecuter.setObjectName("btnExecuter")
         self.line_2 = QtWidgets.QFrame(self.frame_2)
-        self.line_2.setGeometry(QtCore.QRect(330, 250, 118, 3))
+        self.line_2.setGeometry(QtCore.QRect(310, 250, 118, 3))
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
@@ -291,11 +287,11 @@ class Ui_decryption_screen(object):
         self.label_6.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">FILE PATH :</span></p></body></html>"))
         self.lineEdit_file.setPlaceholderText(_translate("decryption_screen", " Le message chiffré "))
         self.btn_browser_file.setWhatsThis(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
-        self.btn_browser_file.setText(_translate("decryption_screen", "parcourir"))
+        self.btn_browser_file.setText(_translate("decryption_screen", "browse"))
         self.label_7.setText(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">private key PATH :</span></p></body></html>"))
         self.lineEdit_private_key_2.setPlaceholderText(_translate("decryption_screen", " La clé privée "))
         self.btn_browser_private.setWhatsThis(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
-        self.btn_browser_private.setText(_translate("decryption_screen", "parcourir"))
+        self.btn_browser_private.setText(_translate("decryption_screen", "browse"))
         self.label_8.setText(_translate("decryption_screen", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -303,9 +299,9 @@ class Ui_decryption_screen(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#000000;\">encrypted key PATH :</span></p></body></html>"))
         self.lineEdit_key_encrypted_3.setPlaceholderText(_translate("decryption_screen", " La clé chiffrée "))
         self.btn_browser_key.setWhatsThis(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
-        self.btn_browser_key.setText(_translate("decryption_screen", "parcourir"))
+        self.btn_browser_key.setText(_translate("decryption_screen", "browse"))
         self.btnExecuter.setWhatsThis(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
-        self.btnExecuter.setText(_translate("decryption_screen", "EXECUTER"))
+        self.btnExecuter.setText(_translate("decryption_screen", "RUN"))
         self.btnRetour.setWhatsThis(_translate("decryption_screen", "<html><head/><body><p><span style=\" font-size:12pt;\">chiffrer</span></p></body></html>"))
         self.btnRetour.setText(_translate("decryption_screen", "⬅ Retour"))
 

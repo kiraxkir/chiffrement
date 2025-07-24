@@ -42,7 +42,7 @@ def dechiffrement (message,user_cle):
 
     return m4
 
-def decryptage(lien_fichier,lien_cle,lien_private):
+def decryptage(lien_fichier,lien_cle,lien_private,nom):
     start = time.perf_counter()
     key=dechiffrement_cle(lien_cle,lien_private)
     cle=round_cle.invcle(key)
@@ -69,9 +69,9 @@ def decryptage(lien_fichier,lien_cle,lien_private):
 
 
     now=datetime.now()
-    date_str = now.strftime("%d.%m.%y-%Hh%M")
+    date_str = now.strftime("%d-%m-%y_%Hh%M")
     desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-    desktop= os.path.join(desktop,"dechiffrement")
+    desktop= os.path.join(desktop,"__dechiffrement")
     os.makedirs(desktop,exist_ok=True)
     filename="decryption_result "+date_str
     folder_path = os.path.join(desktop,filename)
@@ -83,6 +83,6 @@ def decryptage(lien_fichier,lien_cle,lien_private):
         f.write(resultat)
 
     fin = time.perf_counter()
-
+    os.rename(folder_path, folder_path+'__'+nom)
     print(f"le dechiffrement a pris {fin - start:.4f} second")
     return "merci"

@@ -3,52 +3,51 @@ import sys
 sys.path.append("projet_chiffrement/gui")
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
 
+from PyQt5.QtGui import QIcon
 class Ui_Form(object):
-    #pour la fermuture de la fenetre 
-    def closeEvent(self, event):
-        reply = QMessageBox.question(
-        self,
-        'Window Close',
-        'Are you sure you want to close the window?',
-        QMessageBox.Yes | QMessageBox.No,
-        QMessageBox.No)
-        if reply == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
-    # pour ouvrir les autres fenetres 
+
+   
     def open_encryption(self):
         from projet_chiffrement.gui.encryption_screen import Ui_encryption_screen
         
         self.windows=QtWidgets.QWidget()
         self.ui=Ui_encryption_screen()
         self.ui.setupUi(self.windows)
+        self.windows.setWindowTitle("Encrypt a File")
+        self.windows.setWindowIcon(QIcon(r"projet_chiffrement\gui\image\logo.ico"))
         self.windows.show()
-        Form.close()
+        Form.showMinimized()
     def open_decryption(self):
         from projet_chiffrement.gui.decryption_screen import Ui_decryption_screen
         
         self.windows=QtWidgets.QWidget()
         self.ui=Ui_decryption_screen()
         self.ui.setupUi(self.windows)
+        self.windows.setWindowTitle("DECRYPTE A FILE")
+        self.windows.setWindowIcon(QIcon(r"projet_chiffrement\gui\image\logo.png"))
+
         self.windows.show()
-        Form.close()
+      #  Form.close()
+        Form.showMinimized()
     def open_instruction(self):
         from projet_chiffrement.gui.instruction_screen import instruction_screen
         self.windows=QtWidgets.QWidget()
         self.ui=instruction_screen()
         self.ui.setupUi(self.windows)
-        self.windows.show()
-        Form.close()
+        self.windows.setWindowTitle("INSTRUCTION")
+        self.windows.setWindowIcon(QIcon(r"projet_chiffrement\gui\image\logo2.jpg"))
 
-    def position( self):
-        largeur = Form.width()
-        hauteur = Form.height()
-        print("Taille actuelle :", largeur, "x", hauteur)
-        pos = Form.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
-        print(pos.x(), pos.y())
+        self.windows.show() 
+      
+        Form.showMinimized()
+
+    # def position( self):
+    #     largeur = Form.width()
+    #     hauteur = Form.height()
+    #     print("Taille actuelle :", largeur, "x", hauteur)
+    #     pos = Form.pos()  # Renvoie la position actuelle de la fenêtre (QPoint)
+    #     print(pos.x(), pos.y())
     
 
     def setupUi(self, Form):
@@ -158,7 +157,7 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(210, 70, 171, 31))
         self.label.setObjectName("label")
         self.btn_apropos = QtWidgets.QPushButton(Form)
-        self.btn_apropos.clicked.connect(self.position)
+#        self.btn_apropos.clicked.connect(self.position)
         self.btn_apropos.setGeometry(QtCore.QRect(1130, 870, 151, 41))
         self.btn_apropos.setObjectName("btn_apropos")
 
@@ -175,6 +174,7 @@ class Ui_Form(object):
         self.btn_instruction.setText(_translate("Form", "📘 Instructions"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Tableau de bord</span></p></body></html>"))
         self.btn_apropos.setText(_translate("Form", " À propos"))
+        self.btn_apropos.hide()
 
 
 if __name__ == "__main__":

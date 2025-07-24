@@ -23,28 +23,32 @@ class Ui_Form(object):
         self.ui=Ui_encryption_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        Form.close()
+        Form.showMinimized()
+        #    Form.close()
     def open_decryption(self):
         from decryption_screen import Ui_decryption_screen
         self.windows=QtWidgets.QWidget()
         self.ui=Ui_decryption_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        Form.close()
+        Form.showMinimized()
+
+     #   Form.close()
     def open_instruction(self):
         from instruction_screen import instruction_screen
         self.windows=QtWidgets.QWidget()
         self.ui=instruction_screen()
         self.ui.setupUi(self.windows)
         self.windows.show()
-        Form.close()
+       # Form.close()
+        Form.showMinimized()
 
-    def position( self):
-        largeur = Form.width()
-        hauteur = Form.height()
-        print("Taille actuelle :", largeur, "x", hauteur)
-        pos = Form.pos() 
-        print(pos.x(), pos.y())
+    # def position( self):
+    #     largeur = Form.width()
+    #     hauteur = Form.height()
+    #     print("Taille actuelle :", largeur, "x", hauteur)
+    #     pos = Form.pos() 
+    #     print(pos.x(), pos.y())
     
 
     def setupUi(self, Form):

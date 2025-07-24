@@ -25,7 +25,7 @@ Le système repose sur une hybridation des approches symétrique pour le chiffre
 
 ## Structure du projet
 
-📦 ENCRYPTION PROJET/'edw
+📦 ENCRYPTION PROJET/
   ┣ 📂 .github       
   ┣ 📂 projet_chiffrement/  
   ┃   ┗ 📂 content

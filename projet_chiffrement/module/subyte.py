@@ -1,6 +1,6 @@
 
 #import operator
-from module.base import s_box, sbox
+from module.base import  sbox
 import copy
 
 def subyte(m,cle_user):

@@ -14,9 +14,6 @@ import time
 from pprint import pprint
 from key_encryption.rsa import folder_path
 
-    
-import shutil # pour le deplacement du dossier après chiffrement 
-
 
 
 def chiffrement (message,user_cle):
@@ -63,9 +60,13 @@ def cryptage(lien_fichier,name):
         for block in resultat:
             for ligne in block:
                 f.write(bytes(ligne))
-    
-    os.rename(folder_path, folder_path+'__by__'+name)
+    nom=str(name)
+    nom=nom.replace(" ", "_")
+    os.rename(folder_path, folder_path+'__'+nom)
     end = time.perf_counter()
     print(f"le chiffrement a pris {end - start:.4f} second")
 
     return "merci"
+
+
+#[[[86, 101, 117, 105], [108, 108, 101, 122], [32, 32, 32, 32], [32, 32, 32, 32]]]

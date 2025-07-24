@@ -17,6 +17,7 @@ import copy
 def mixcolumn(state):
 	
     n=copy.deepcopy(state)
+   
 	
     for i in range(4):
 		
@@ -48,3 +49,11 @@ def invMixColumns(state):
 		n[i][3] = (gfp11[state[i][0]] ^ gfp13[state[i][1]] ^ gfp9[state[i][2]] ^ gfp14[state[i][3]])
 
 	return n
+
+# [ 02 3  1 1]       [a0]        [b0]
+# [ 1  02 03  1]     [a1]        [b1]
+# [ 01 01 02 03]  *  [a2]   ===  [b2]  
+# [ 03 01 01 02]     [a3]        [b3]
+
+
+#b0=a0.02 ^ a1.03 ^ a2.1  ^ a3.1 .... 

@@ -9,11 +9,11 @@ from datetime import datetime
 
 
 now=datetime.now()
-date_str = now.strftime("%d_%m_%y-%Hh%M")
+date_str = now.strftime("%d-%m-%y_%Hh%M")
 desktop = os.path.join(os.path.expanduser("~"), "Desktop")
 desktop= os.path.join(desktop,"chiffrement_resultat")
 os.makedirs(desktop,exist_ok=True)
-filename="encryption_result "+date_str
+filename="encryption_result__"+date_str
 folder_path = os.path.join(desktop,filename)
 # j ai l ai executer dans round cle, je ne sais pas pourquoi aussi 
 
@@ -65,6 +65,6 @@ def RSA(cle):
     with open(path,"w+") as c:
         c.write(f"{d}\n")
         c.write(f"{n}")   
-    print("RSA !!!!!!!!!!!!!!!!!!!!!!")
+   # print("RSA !!!!!!!!!!!!!!!!!!!!!!")
     return 'rsa '
 
