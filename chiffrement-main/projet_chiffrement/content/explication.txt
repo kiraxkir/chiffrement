@@ -1,0 +1,31 @@
+pour le dechiffrement, il faut faire le contraire avec la cle genre ---!
+
+# decrype=[]
+# for i in crypte:
+#     y=i
+#     for j in range(1,6):
+#         y=decryptage(y,cle[-j])
+#     decrype.append(y)
+
+
+
+ for i in texte : 
+#     x=i
+#     for j in range ( 5): 
+#         x=encryption(x,cle[j])
+
+
+pour le stockage du resultat, vu que c est une matrce 4*4 en 3d, j ai utiliser le code : # with open("resultat_bin.bin","wb") as f:
+#     for block in tableau:
+#         for ligne in block:
+#             f.write(bytes(ligne))
+qui ecrit tout en binaire et applatit le resultat ce qui facilte la lecture lors du dechiffrement : 
+
+with open("resultat_bin.bin","rb") as f:
+    data=f.read()
+    octet=list(data)
+
+
+
+
+le dossier se creer dans RSA
