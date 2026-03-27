@@ -1,0 +1,29 @@
+🎨 Palette principale (dark mode)
+Usage	Couleur	Code HEX
+Fond principal	Gris très sombre	#121212
+Fond secondaire / panels	Gris foncé	#1E1E1E
+Texte principal	Blanc cassé	#E0E0E0
+Texte secondaire	Gris clair	#B0B0B0
+Accent / boutons	Bleu électrique	#2979FF
+Accent alternatif / highlights	Cyan doux	#00BCD4
+Erreurs / alertes	Rouge vif	#FF5252
+Succès / validation	Vert vif	#4CAF50
+🌈 Palette secondaire (pour code ou UI)
+Usage	Couleur	HEX
+Keywords	Bleu clair	#82AAFF
+Strings	Vert clair	#C3E88D
+Numbers / constantes	Orange doux	#FFCB6B
+Comments	Gris neutre	#546E7A
+Functions / classes	Violet	#C792EA
+
+Ces couleurs sont inspirées des thèmes populaires type Monokai, Dracula, Nord, One Dark Pro.
+
+💡 Conseils design
+Fond sombre + texte clair → réduit la fatigue visuelle
+Accent color → toujours sur les éléments interactifs (boutons, liens, highlights)
+Ne pas utiliser trop de couleurs vives → l’œil se perd
+Hiérarchie visuelle → texte secondaire/gris pour infos moins importantes
+
+Si tu veux, je peux te faire un exemple complet de palette JavaFX avec ces couleurs et des styles CSS prêts à coller dans ton projet, pour que ton IDE ait un look pro sombre.
+
+Veux‑tu que je fasse ça ?

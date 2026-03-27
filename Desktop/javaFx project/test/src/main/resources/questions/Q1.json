@@ -1,0 +1,15 @@
+{
+  "title": "Addition",
+  "description": "Lire x et y et afficher x+y",
+  "template": "x=int(input())\ny=int(input())\n\n# votre code ici\n\nprint()",
+  "tests": [
+    {
+      "input": "10\n5\n",
+      "output": "15"
+    },
+    {
+      "input": "3\n4\n",
+      "output": "7"
+    }
+  ]
+}

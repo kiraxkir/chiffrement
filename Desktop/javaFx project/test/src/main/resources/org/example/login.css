@@ -1,0 +1,34 @@
+#pane {
+    -fx-background-radius: 30;       /* arrondi des coins */
+    -fx-background-insets: 0;
+}
+#btnfermer {
+    -fx-background-color: #8F392C;
+    -fx-text-fill: white;
+    -fx-background-radius:5
+}
+
+#btnfermer:hover {
+    -fx-background-color: #521B0D;
+}
+#btnfermer:pressed{
+-fx-background-color: #6B2511;
+}
+
+
+#btninscrire {
+    -fx-background-color: #8F392C;
+    -fx-text-fill: white;
+     -fx-background-radius:5
+}
+
+#btninscrire:hover {
+    -fx-background-color: #521B0D;
+}
+#btninscrire:pressed{
+-fx-background-color: #C73D18;
+}
+
+
+
+

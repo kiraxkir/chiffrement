@@ -1,0 +1,70 @@
+.keyword {
+    -fx-fill: #cc7832;
+    -fx-font-weight: bold;
+}
+
+.string {
+    -fx-fill: #6a8759;
+
+
+}
+
+.comment {
+    -fx-fill: #808080;
+}
+.sortie {
+    -fx-fill: #dcdcaa;   /* couleur jaune clair */
+    -fx-font-weight: bold;
+}
+.plain {
+    -fx-fill: #d4d4d4; /* couleur du texte normal */
+}
+
+
+.paren {
+    -fx-fill: #a9b7c6;
+}
+
+.brace {
+    -fx-fill: #a9b7c6;
+}
+
+.bracket {
+    -fx-fill: #a9b7c6;
+}
+
+.semicolon {
+    -fx-fill: #cc7832;
+}
+.pane {
+    -fx-background-color: #1e1e1e;
+}
+
+.code-area {
+    -fx-background-color: #1e1e1e;
+    -fx-fill: #d4d4d4;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14px;
+}
+.paragraph-box:has-caret {
+    -fx-background-color: #2a2d2e;
+}
+.text {
+    -fx-fill: #d4d4d4;
+
+.lineno {
+    -fx-text-fill: #858585;
+    -fx-background-color: #1e1e1e;
+}
+.line-number {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #858585; /* couleur du texte */
+    -fx-padding: 0 5 0 5;
+}
+
+.caret {
+    -fx-stroke: white;
+}
+.styled-text-area .selection {
+    -fx-fill: #264f78;
+}

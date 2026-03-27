@@ -1,0 +1,46 @@
+
+
+🧱 Architecture typique (important pour toi)
+
+Dans une app pro, on sépare :
+
+📦 1. Modèle (DB)
+SQLite / MySQL
+⚙️ 2. Logique (backend)
+Java (services, traitement)
+🖥️ 3. Interface (GUI)
+JavaFX
+
+👉 C’est le modèle MVC (Model View Controller)
+
+🚀 Pour TON projet (recommandation claire)
+
+Fais comme ça :
+
+Étape 1
+définir tables SQLite :
+users
+questions
+submissions
+Étape 2
+créer login simple
+Étape 3
+interface avec liste de questions
+Étape 4
+exécution du code + comparaison
+Étape 5
+sauvegarde résultats
+💡 Résumé simple
+
+👉 En pro :
+
+❌ on ne fait pas “DB → GUI → fin”
+
+✔️ on fait :
+
+analyse → conception → développement itératif
+
+👉 La DB :
+
+est pensée tôt ✔
+mais évolue avec le projet ✔
